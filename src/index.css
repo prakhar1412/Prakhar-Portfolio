@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./assets/fonts/brevis.css";
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 50% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 45% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 45% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 100% 65%;
+    --primary-foreground: 210 50% 8%;
+
+    --secondary: 260 60% 70%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 280 70% 75%;
+    --accent-foreground: 210 50% 8%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 215 20% 75%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 40% 20%;
+    --input: 215 40% 18%;
+    --ring: 200 100% 65%;
+
+    --radius: 0.75rem;
+
+    --glow-sky: 200 100% 65%;
+    --glow-lavender: 260 60% 70%;
+    --glow-purple: 280 70% 75%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 65% / 0.2), hsl(260 60% 70% / 0.2));
+    --gradient-glow: linear-gradient(135deg, hsl(200 100% 65%), hsl(260 60% 70%), hsl(280 70% 75%));
+    
+    --shadow-glow-sky: 0 0 40px hsl(200 100% 65% / 0.4);
+    --shadow-glow-lavender: 0 0 40px hsl(260 60% 70% / 0.4);
+    --shadow-glow-purple: 0 0 40px hsl(280 70% 75% / 0.4);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-glow-sky {
+    text-shadow: 0 0 30px hsl(var(--glow-sky) / 0.6), 0 0 60px hsl(var(--glow-sky) / 0.3);
+  }
+
+  .text-glow-lavender {
+    text-shadow: 0 0 30px hsl(var(--glow-lavender) / 0.6), 0 0 60px hsl(var(--glow-lavender) / 0.3);
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 30px hsl(var(--glow-purple) / 0.6), 0 0 60px hsl(var(--glow-purple) / 0.3);
+  }
+
+  .glass-effect {
+    background: rgba(20, 30, 50, 0.5);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 10px hsl(var(--glow-sky) / 0.5));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px hsl(var(--glow-sky) / 0.8));
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "default": "prakharx-4c900"
+  },
+  "targets": {
+    "prakharx-4c900": {
+      "hosting": {
+        "prakharx": "prakharx-4c900"
+      }
+    }
+  },
+  "etags": {}
+}
